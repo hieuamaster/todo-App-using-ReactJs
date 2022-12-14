@@ -11,8 +11,14 @@ const style = {
     count: `text-center p-2`
 };
 function App() {
-    const [todos, setTodos] = useState(['Learn React', 'Leet code']);
+    const [todos, setTodos] = useState(['Learn React', 'Learn Typescript']);
+    
     return (
+        //create todo
+        //read todo form firebase 
+        //update todo in firebase
+        //delete todo
+
         <div className={style.bg}>
             <div className={style.container}>
                 <h3 className={style.heading}>Todo App</h3>
