@@ -5,17 +5,17 @@ const style = {
     liComplete: `flex justify-between bg-slate-400 p-4 my-2 capitalize`,
     row: `flex`,
     text: `ml-2 cursor-pointer`,
-    textComplete: `ml-2 cursor-pointer text-through`,
+    textComplete: `ml-2 cursor-pointer line-through`,
     button: `cursor-pointer flex item-center`
 };
-const TodoItems = ({ todo }) => {
+const TodoItems = ({ todo, toggleComplete, deleteTodo }) => {
     return (
         <li className={todo.completed ? style.liComplete : style.li}>
             <div className={style.row}>
-                <input type="checkbox" checked={todo.completed ? 'checked' : ''}/>
-                <p className={todo.completed ? style.textComplete : style.text}>{todo.text}</p>
+                <input onChange={()=>toggleComplete(todo)} type="checkbox" checked={todo.completed ? 'checked' : ''}/>
+                <p onClick={()=>toggleComplete(todo)} className={todo.completed ? style.textComplete : style.text}>{todo.text}</p>
             </div>
-            <button>{<FaRegTrashAlt></FaRegTrashAlt>}</button>
+            <button onClick={()=>deleteTodo(todo.id)}>{<FaRegTrashAlt></FaRegTrashAlt>}</button>
         </li>
     );
 };
